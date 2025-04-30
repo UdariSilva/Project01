@@ -1,1 +1,1 @@
-# WebProject_01
+# ARTGallery is a modern and responsive web applicationdesigned to beautifully showcase collections of art works. Built with a focus on aesthetic and usability, it allows users to explore,view and buy arts in an intuitive and engaging way. Ideal for artists, curators or anyone passionate about visual creativity.
