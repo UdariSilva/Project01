@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+          body {
+            font-family: sans-serif;
+            background-color: rgba(194, 194, 194, 0.8);
+        }
+
+         /*title bar styles*/
+      .title-bar {
+            background-color: #1a1a1a;
+            padding: 10px;
+            text-align: left;
+            color: #eee;
+            margin-bottom: 0px;
+            font-family:'Raleway', sans-serif;
+        }
+        .title-bar img {
+            max-height: 100px;  
+            margin-right: 10px;  
+        }
+
+        .title-bar h1 {
+            color: #eee;
+            margin: 0;  
+            font-size: 1.5em;  
+        }
+
+        .navbar {
+            background-color: rgba(120, 161, 4, 0.8);
+            padding: 30px;
+            font-family:'Raleway', sans-serif;
+        }
+
+        .navbar .nav-link {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffd700;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left {
+            margin-right: auto;  
+        }
+        
+        .grid-item img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid gray;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;  
+            transition: transform 0.3s ease;  
+        }
+
+        .grid-item img:hover {
+            transform: scale(1.1);  
+        }
+
+        .artist-info {
+            display: flex;
+            align-items: flex-start;  
+            margin-bottom: 20px;
+        }
+
+        .artist-image {
+            border: 1px dashed #ccc;
+            width: 250px;
+            height: 250px;
+            margin-right: 20px;
+            margin-left: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+        }
+
+        .artist-description {
+            flex-grow: 1;  
+            margin-left: 200px;
+        }
+
+        /* Modal Styles */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        #modalImage {
+            margin: auto;
+            display: block;
+            max-width: 70%;
+            max-height: 80%;
+        }
+
+        #imageModal .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        #imageModal .close:hover,
+        #imageModal .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title-bar">
+        <table><tr><td><img src="images/logo_01.png" alt="ArtCave Logo"></td><td> <h1 style="font-size: 50px;">ArtCave</h1></td></tr></table>
+    </div>
+
+    <!--navigation bar section-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav-left">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home_Page.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gallery_Page.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="My_Profile_Page.html">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="About_Us_Page.html">About Us</a>
+                    </li>
+                </ul>
+                 
+            </div>
+        </div>
+    </nav>
+
+
+    <!---artist details content section-->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Search for more artists">
+            </div>
+        </div>
+        <div class="artist-info mt-4">
+            <div class="artist-image"><img class="profile" src="images/istockphoto-1187482560-612x612.jpg" alt="profile" style="border-radius: 30px; width:300px;height:200px;"></div>
+            <div class="artist-description">
+                <h3>Elena Rossi</h3>
+                <p>Born in Florence, Italy, Elena Rossi is an Italian artist currently residing in Rome, Italy. Her
+                    artistic practice centers around oil painting, with a focus on capturing the fleeting moments of
+                    nature. Elena Rossi's work has been shown at the Biennale di Venezia and several smaller galleries
+                    in Italy.</p>
+                <button class="btn btn-primary"><a style="text-decoration: none;color: white;" href="https://web.whatsapp.com/">Send Message</a></button>
+            </div>
+        </div>
+        <div class="row mt-4" id="imageGallery">
+            <div class="col-md-3 grid-item">
+                <img src="images/0a5e147e-679c-4133-8c0b-e8da3bdd8565.jpg" alt="Artwork 1" style="border-radius: 10px;">
+                <p>Artwork 1</p>
+            </div>
+
+            <div class="col-md-3 grid-item">
+                <img src="images/8dd584a675315227be637316e0aca324.jpg" alt="Artwork 1" style="border-radius: 10px;">
+                <p>Artwork 2</p>
+            </div>
+
+            <div class="col-md-3 grid-item">
+                <img src="images/7a703f5e6b797b6cf8dcb9047674ffd4.jpg" alt="Artwork 1" style="border-radius: 10px;">
+                <p>Artwork 3</p>
+            </div>
+
+          <div class="col-md-3 grid-item">
+                <img src="images/165fa9b0374a11ee85c606311dffedfc_upscaled.jpg" alt="Artwork 2" style="border-radius: 10px;">
+                <p>Artwork 4</p>
+            </div>
+            </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+
+
+    <!--footer section-->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 ArtCave. All rights reserved. | <a href="https://mail.google.com/mail/" target="_blank" style="text-decoration: none;">Contact: info@artworkgallery.com</a></p>
+        </div>
+    </footer>
+
+
+    <!--java script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("imageModal");
+
+        // Get the image and insert it inside the modal
+        var images = document.querySelectorAll("#imageGallery img");
+        var modalImg = document.getElementById("modalImage");
+
+        images.forEach(img => {
+            img.onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        function closeModal() {
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color:  rgba(201, 200, 198, 0.8);
+        }
+
+          /*title bar styles*/
+      .title-bar {
+            background-color: #1a1a1a;
+            padding: 10px;
+            text-align: left;
+            color: #eee;
+            margin-bottom: 0px;
+            font-family:'Raleway', sans-serif;
+        }
+
+        .title-bar img {
+            max-height: 100px;  
+            margin-right: 10px;  
+        }
+
+        .title-bar h1 {
+            color: #eee;
+            margin: 0;  
+            font-size: 1.5em;  
+        }
+
+        .navbar {
+            background-color: rgba(120, 161, 4, 0.8);
+            padding: 30px;
+            font-family:'Raleway', sans-serif;
+        }
+
+        .navbar .nav-link {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffd700;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left {
+            margin-right: auto;  
+        }
+
+
+        .place {
+            border: 1px  #ccc;
+            display: flex;
+            
+            height: 400px;
+            width:400px;
+            margin-bottom: 20px;
+        }
+
+        .details-table {
+            border: 0px solid #ada3a3;
+            background-color: #1a1a1a;
+        }
+
+        .details-table th,
+        .details-table td {
+            padding: 8px;
+            border: 1px solid #8a8888;
+            text-align: left;
+            background-color: rgb(214, 214, 214);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-outline-secondary {
+            
+            color: gray;
+            width:"10px";
+            height:"10px";
+        }
+
+        .link{
+            color: #ffd700;
+        }
+
+        .heart-icon,
+        .save-icon {
+            font-size: 20px;
+            margin-left: 5px;  
+        }
+        .icon-container{
+            display: flex;
+            align-items: center;
+        }
+
+        #myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none;  
+  position: fixed;  
+  z-index: 1;  
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;  
+  height: 100%;  
+  overflow: auto;  
+  background-color: rgb(0,0,0);  
+  background-color: rgba(0,0,0,0.9);  
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-bar">
+        <table><tr><td><img src="images/logo_01.png" alt="ArtCave Logo"></td><td> <h1 style="font-size: 50px;">ArtCave</h1></td></tr></table>
+    </div>
+    
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav nav-left">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Home_Page.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Gallery_Page.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_profile.html">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="About_Us_Page.html">About Us</a>
+                    </li>
+                </ul>
+                 
+            </div>
+        </div>
+    </nav>
+
+    <!--image section-->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="place"><img id="myImg" src="images/kHdQm6WQ8ZdREHSKOWtm.png" alt="alt"></div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3>Land Scape</h3>
+                    <div class="icon-container">
+                        <i class="fa-regular fa-heart heart-icon"></i>
+                        <i class="fa-regular fa-floppy-disk save-icon"></i>
+                    </div>
+                </div>
+                <table class="table details-table">
+                    <tbody>
+                        <tr>
+                            <th>Artist Name</th>
+                            <td>Don Smith</td>
+                        </tr>
+                        <tr>
+                            <th>Creation Date</th>
+                            <td>2023/12/04</td>
+                        </tr>
+                        <tr>
+                            <th>Dimensions</th>
+                            <td>350x250</td>
+                        </tr>
+                        <tr>
+                            <th>Medium</th>
+                            <td>Canvas</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>200$</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>A peaceful scene of a river meandering through a tranquil landscape.</p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="button"><a class="link" href="Buying_Artwork.html" target="_self">Add to Cart</a></button>
+                    <a class="btn btn-outline-secondary" href="Artist_Details_Page.html" target="_blank"><button class="btn btn-outline-secondary" type="button">Contact Artist</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer section-->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 ArtCave. All rights reserved. | <a href="https://mail.google.com/mail/" target="_blank" style="text-decoration: none;">Contact: info@artworkgallery.com</a></p>
+        </div>
+    </footer>
+
+    <!--java script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>
